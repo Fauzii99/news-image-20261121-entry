@@ -8,7 +8,8 @@
   items (BepiColombo orbit, final COP31 text).
 - Verification badges OFFICIAL / CONFIRMED / REPORTED + sources on every
   main story. Masthead in Noto Serif ExtraCondensed Bold (auto-fit to 82px).
-  Deterministic. DO NOT SUBMIT before user ACC.
+  Hero headlines at 20px so all three fit two lines whole. Deterministic.
+  DO NOT SUBMIT before user ACC.
 """
 from PIL import Image, ImageDraw, ImageFont
 import math
@@ -339,7 +340,7 @@ NUMBERS = [
     ("13", "DAY OF COP31", "MEANT TO CLOSE DAY 12"),
     ("3", "MISSILES SHOT DOWN", "OVER RIYADH"),
     ("6.7", "MAGNITUDE OF THE", "PERU QUAKE"),
-    ("146", "PEOPLE SAFE AFTER", "A JET\u2019S EMERGENCY LANDING"),
+    ("146", "PEOPLE SAFE AFTER", "A JET EMERGENCY LANDING"),
     ("$58,983", "BITCOIN EARLY SATURDAY", "DOWN 3.9% IN A DAY"),
     ("124*", "K L RAHUL\u2019S SCORE", "AT TEA IN WELLINGTON"),
 ]
@@ -358,8 +359,8 @@ REGIONS = [
 # map pins 1-13 (pixel positions on the 340x123 map, nudged to avoid overlap)
 PINS = [
     (1, 236, 822), (2, 242, 826), (3, 127, 859), (4, 220, 797),
-    (5, 268, 822), (6, 252, 802), (7, 122, 814), (8, 308, 811),
-    (9, 317, 842), (10, 336, 878), (11, 142, 800), (12, 89, 815),
+    (5, 268, 822), (6, 252, 802), (7, 120, 826), (8, 308, 811),
+    (9, 317, 842), (10, 336, 878), (11, 134, 842), (12, 89, 815),
     (13, 358, 890),
 ]
 
@@ -440,7 +441,7 @@ def render():
         stat_chip(d, x + 8, y + 140 - 26, hro["stat"])
         badge(d, x + hw - 8, y + 8, hro["badge"], hro["badge_color"])
         d.text((x + 8, y + 148), hro["loc"], font=F(SANS_B, 12), fill=RED)
-        block(d, x + 8, y + 166, hro["head"], F(SERIF_B, 21), hw - 16, 23, max_lines=2)
+        block(d, x + 8, y + 166, hro["head"], F(SERIF_B, 20), hw - 16, 22, max_lines=2)
         block(d, x + 8, y + 214, hro["body"], F(SANS, 13), hw - 16, 16, max_lines=2)
 
     # 10 tiles (4-13), 2 rows x 5
