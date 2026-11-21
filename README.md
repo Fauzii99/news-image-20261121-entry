@@ -5,13 +5,14 @@
 [![reward](https://make.fun/badge/news-image-20261121/Fauzii99/news-image-20261121-entry/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
 A newspaper front page that sums up Saturday 21 November 2026 in one image:
-**27 verified stories across 7 regions** — Russia's 400-drone, 110-missile
+**18 verified stories across 7 regions** — Russia's 400-drone, 110-missile
 barrage on Ukraine with two missiles landing in Poland; three Houthi
 missiles intercepted over Riyadh; COP31 running into overtime in Antalya;
 a 6.8 quake in Peru; the UN court finding Myanmar guilty of genocide
 against the Rohingya; a tanker hit near Hormuz; the AI stock rout; and the
 biggest UK–EU pact since Brexit — plus a day-in-numbers strip and a world
-map with a numbered index of all 8 hotspots.
+map with four labelled hotspots. Every text element is at least 15px on
+the 1024px canvas, so the page stays readable at 300px wide.
 
 ## How it is built
 
