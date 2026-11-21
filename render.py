@@ -314,11 +314,11 @@ def render():
                   outline=(255, 255, 255), width=1)
         d.text((cx, cy - 1), num, font=F(SANS_B, 9), fill=(255, 255, 255), anchor="mm")
     # orbit icon over the Pacific (empty ocean, top right of map)
-    ox, oy = 650, 165
+    ox, oy = 650, 163
     d.ellipse([ox - 26, oy - 11, ox + 26, oy + 11], outline=GOLD, width=2)
     d.ellipse([ox - 5, oy - 5, ox + 5, oy + 5], fill=NAVY)
     d.rectangle([ox + 6, oy - 2, ox + 16, oy + 2], fill=NAVY)
-    d.text((ox, oy + 17), "ORBIT \u2014 BEPICOLOMBO", font=F(SANS_B, 9),
+    d.text((ox, oy + 19), "ORBIT \u2014 BEPICOLOMBO", font=F(SANS_B, 9),
            fill=NAVY, anchor="mt")
     # legend
     d.text((512, 414), PIN_LEGEND[0], font=F(SANS_B, 9.5), fill=INK, anchor="mt")
@@ -329,7 +329,7 @@ def render():
     d.text((px + 12, py + 10), "BY THE NUMBERS", font=F(SANS_B, 13), fill=NAVY)
     d.line([px + 12, py + 32, px + pw - 12, py + 32], fill=NAVY, width=1)
     for i, (num, lab) in enumerate(NUMBERS):
-        yy = py + 40 + i * 46
+        yy = py + 38 + i * 45
         d.text((px + 12, yy), num, font=F(SANS_B, 22), fill=RED)
         d.text((px + 12, yy + 25), lab, font=F(SANS_B, 10), fill=INK)
 
