@@ -1,17 +1,17 @@
 # Saturday 21 November 2026: the world in one page
 
-[![make.fun](https://make.fun/badge/bounty/news-image-20261121/owner/Fauzii99/repo/news-image-20261121-entry)](https://make.fun/bounty/news-image-20261121)
-[![make.fun](https://make.fun/badge/bounty/news-image-20261121/owner/Fauzii99/repo/news-image-20261121-entry/run)](https://make.fun/bounty/news-image-20261121)
-[![make.fun](https://make.fun/badge/bounty/news-image-20261121/owner/Fauzii99/repo/news-image-20261121-entry/referral/pg1dyky2)](https://make.fun/r/pg1dyky2)
+[![make.fun · news-image-20261121](https://make.fun/badge/news-image-20261121.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
+[![rank](https://make.fun/badge/news-image-20261121/Fauzii99/news-image-20261121-entry/rank.svg)](https://make.fun/bounty/news-image-20261121/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
+[![reward](https://make.fun/badge/news-image-20261121/Fauzii99/news-image-20261121-entry/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
 A newspaper front page that sums up Saturday 21 November 2026 in one image:
-**35 verified stories across 7 regions** — Russia's 400-drone, 110-missile
+**27 verified stories across 7 regions** — Russia's 400-drone, 110-missile
 barrage on Ukraine with two missiles landing in Poland; three Houthi
 missiles intercepted over Riyadh; COP31 running into overtime in Antalya;
 a 6.8 quake in Peru; the UN court finding Myanmar guilty of genocide
 against the Rohingya; a tanker hit near Hormuz; the AI stock rout; and the
 biggest UK–EU pact since Brexit — plus a day-in-numbers strip and a world
-map with a numbered index of all 35 stories.
+map with a numbered index of all 8 hotspots.
 
 ## How it is built
 
