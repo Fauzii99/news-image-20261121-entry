@@ -5,14 +5,13 @@
 [![reward](https://make.fun/badge/news-image-20261121/Fauzii99/news-image-20261121-entry/reward.svg)](https://make.fun/bounty/news-image-20261121?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261121)
 
 A newspaper front page that sums up Saturday 21 November 2026 in one image:
-**18 verified stories across 7 regions** — Russia's 400-drone, 110-missile
-barrage on Ukraine with two missiles landing in Poland; three Houthi
-missiles intercepted over Riyadh; COP31 running into overtime in Antalya;
-a 6.8 quake in Peru; the UN court finding Myanmar guilty of genocide
-against the Rohingya; a tanker hit near Hormuz; the AI stock rout; and the
-biggest UK–EU pact since Brexit — plus a day-in-numbers strip and a world
-map with four labelled hotspots. Every text element is at least 15px on
-the 1024px canvas, so the page stays readable at 300px wide.
+**35 verified stories across 7 regions** — the giant date masthead names the
+day; three big illustrated heroes (COP31 overtime in Antalya, three Houthi
+missiles downed over Riyadh, the M6.7 Peru quake) lead ten more illustrated
+tiles and a 22-item numbered index, with a six-figure numbers strip, a
+region-counts bar, a numbered world map, and a DATE CHECK box that names the
+Friday 20 November news deliberately left out. Every main story carries its
+source and a verification badge (OFFICIAL / CONFIRMED / REPORTED).
 
 ## How it is built
 
