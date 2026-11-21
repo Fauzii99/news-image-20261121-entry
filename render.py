@@ -236,7 +236,7 @@ REGIONS = [
     ("EUROPE", RED, "star", [
         "NATO chief Rutte visits Warsaw",
         "UK\u2013EU reset pact since Brexit",
-        "EU: COP31 draft \u2018fossil-fuel\u2019",
+        "EU: COP31 draft \"fossil-fuel\"",
     ]),
     ("MIDDLE EAST", GOLD, "crescent", [
         "Three killed in Gaza aid strike",
