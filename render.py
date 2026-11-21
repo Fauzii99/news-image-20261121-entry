@@ -286,7 +286,7 @@ TILES = [
          body="Tokyo says its stance is unchanged. (Ministry, AFP)",
          badge="OFFICIAL", badge_color=GREEN),
     dict(num=9, kicker="DAVAO: 146 SAFE", loc="9 DAVAO \u00b7 AVIATION", art="davao",
-         head="Jet lands safely after engine fire alert",
+         head="Jet lands after engine-fire alert",
          body="Air Niugini 767 diverts after midnight. (Airline, AP)",
          badge="OFFICIAL", badge_color=GREEN),
     dict(num=10, kicker="CANBERRA: AI", loc="10 CANBERRA \u00b7 AI", art="canberra",
@@ -302,7 +302,7 @@ TILES = [
          body="1:34.041 in a damp, messy session. (Formula 1)",
          badge="OFFICIAL", badge_color=GREEN),
     dict(num=13, kicker="RAHUL: 124*", loc="13 WELLINGTON \u00b7 NZ", art="rahul",
-         head="Rahul hits a century vs New Zealand",
+         head="Rahul century vs New Zealand",
          body="India 344 for 2 at tea, replying to 368. (AFP)",
          badge="OFFICIAL", badge_color=GREEN),
 ]
