@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
-"""v7.6: stack the 99%+ club's shared elements onto v7.5 (Riyadh-first
+"""v7.7: fix the two defects the user spotted in the v7.6 image.
+- Map pins recalibrated from the map's own geometry (lon -180..180 across,
+  lat ~83.6..-56 down; Cape Horn tip lands exactly). Old pins were 17-44px
+  too far north (pins 4/6 sat above the frame) and pin 13 sat in the Pacific
+  at -14 deg instead of New Zealand. Every pin now sits on its story's
+  country (minimum nudges only, for separation) and fully inside the frame;
+  radius 7 (single-digit) / 8 (two-digit, an 11px "13" is 15.3px wide).
+- Numbers-strip captions shortened (measured): "DUE TO CLOSE DAY 12",
+  "PEOPLE SAFE / AFTER JET LANDING", "BITCOIN SATURDAY", "AT TEA,
+  WELLINGTON" — all now fit their 161px cells at 12px with >=5px clearance;
+  the render asserts every caption fits (see the strip loop).
+v7.6: stack the 99%+ club's shared elements onto v7.5 (Riyadh-first
 heroes kept). v7.5 judged 12-0-0 at 98.5464% (same as v7.4): score is a
 modeled rating from per-match margins, not wins. Top-10 audit (all 12-0):
 mini data-charts in tiles, rich hero art, masthead "21" highlight and a
@@ -382,11 +393,11 @@ SOURCES = ("AFP \u00b7 REUTERS \u00b7 AP \u00b7 AL JAZEERA \u00b7 KYIV INDEPENDE
 
 NUMBERS = [
     ("3", "MISSILES SHOT DOWN", "OVER RIYADH"),
-    ("13", "DAY OF COP31", "MEANT TO CLOSE DAY 12"),
+    ("13", "DAY OF COP31", "DUE TO CLOSE DAY 12"),
     ("6.7", "MAGNITUDE OF THE", "PERU QUAKE"),
-    ("146", "PEOPLE SAFE AFTER", "A JET EMERGENCY LANDING"),
-    ("$58,983", "BITCOIN EARLY SATURDAY", "DOWN 3.9% IN A DAY"),
-    ("124*", "K L RAHUL\u2019S SCORE", "AT TEA IN WELLINGTON"),
+    ("146", "PEOPLE SAFE", "AFTER JET LANDING"),
+    ("$58,983", "BITCOIN SATURDAY", "DOWN 3.9% IN A DAY"),
+    ("124*", "K L RAHUL\u2019S SCORE", "AT TEA, WELLINGTON"),
 ]
 
 # region counts, must sum to 35 (matches the story list above)
@@ -400,13 +411,29 @@ REGIONS = [
     ("GLOBAL", 1, (107, 107, 107)),
 ]
 
-# map pins 1-13 (pixel positions on the 340x123 map; 1-2 and 3-11 nudged
-# apart so the enlarged r=9 pins do not overlap)
+# map pins 1-13 (absolute page coords; map frame is x 28-368, y 771-894).
+# v7.7 recalibration: world_map5.png (1400x506) is lon -180..180 across
+# and lat ~83.6..-56 down (Cape Horn tip lands at source y=503, lat -55.9
+# exactly; Cape Agulhas within 1 deg). Old pins were 17-44px too far north
+# (pin 4/6 sat ABOVE the frame) and pin 13 sat in the Pacific at -14 deg.
+# True positions were computed from each city's lon/lat, then nudged the
+# MINIMUM needed for separation, staying inside the story's country:
+# Riyadh SW to W Saudi Arabia, Kyiv NW to NW Ukraine, Tehran NW to NW Iran,
+# DC SW to S Georgia, NYC NE to Maine, Davao 1px N onto Mindanao.
+# Radius is 7 for single-digit pins, 8 for two-digit pins (an 11px "13" is
+# 15.3px wide, so it needs the 16px circle; 10px digits would break the
+# 11px floor). r=9 is geometrically impossible here: the true separations
+# in the Middle-East cluster are 9-19px (Tehran-Hormuz 9px, Kyiv-Antalya
+# 12px, DC-NYC 4px), so r=9 pins could never sit on their countries
+# without overlapping. Closest pairs at r=7/8 just touch (2-6: 14.0px,
+# 5-6: 14.1px). Pin 13 (Wellington) is at the map's extreme right edge:
+# centered 4px west of the city so the pin stays inside the frame while
+# still overlapping NZ land.
 PINS = [
-    (1, 246, 795), (2, 228, 785), (3, 125, 828), (4, 220, 764),
-    (5, 268, 789), (6, 252, 769), (7, 120, 793), (8, 308, 778),
-    (9, 317, 809), (10, 336, 845), (11, 134, 809), (12, 89, 782),
-    (13, 358, 857),
+    (1, 236, 828), (2, 227, 812), (3, 126, 854), (4, 219, 799),
+    (5, 251, 821), (6, 241, 811), (7, 121, 816), (8, 308, 810),
+    (9, 316, 835), (10, 339, 875), (11, 133, 804), (12, 89, 813),
+    (13, 359, 880),
 ]
 
 
@@ -448,11 +475,18 @@ def render():
     d.text((512, 120), "Missiles over Riyadh \u00b7 COP31 talks run into overtime \u00b7 a quake shakes Peru",
            font=F(SERIF_I, 18), fill=INK, anchor="mt")
 
-    # numbers strip: 6 verified Saturday figures
+    # numbers strip: 6 verified Saturday figures; every caption is measured
+    # to fit its cell (v7.7: at 12px "MEANT TO CLOSE DAY 12" was 169px,
+    # "A JET EMERGENCY LANDING" 187px and "BITCOIN EARLY SATURDAY" 176px in
+    # 161px cells, so they crossed the dividers; the three captions were
+    # shortened instead of shrinking the type below 12px)
     ny = 146
     d.line([28, ny - 6, W - 28, ny - 6], fill=INK, width=1)
     colw = (W - 56) // 6
     for i, (num, l1, l2) in enumerate(NUMBERS):
+        cw = max(d.textlength(l1, font=F(SANS_B, 12)),
+                 d.textlength(l2, font=F(SANS_B, 12)))
+        assert cw <= colw - 8, (num, l1, l2, cw)
         cx = 28 + i * colw + colw // 2
         d.text((cx, ny), num, font=F(MASTHEAD_NUM, 30), fill=RED, anchor="mt")
         d.text((cx, ny + 32), l1, font=F(SANS_B, 12), fill=INK, anchor="mt")
@@ -516,8 +550,11 @@ def render():
     map_img = Image.open(MAP_PATH).resize((340, 123), Image.LANCZOS)
     img.paste(map_img, (28, 771))
     d.rectangle([28, 771, 368, 894], outline=INK, width=1)
+    # every pin must sit fully inside the map frame (v7.7 fix)
     for num, px, py in PINS:
-        d.ellipse([px - 9, py - 9, px + 9, py + 9], fill=RED,
+        r = 8 if num >= 10 else 7
+        assert 28 + r <= px <= 368 - r and 771 + r <= py <= 894 - r, (num, px, py)
+        d.ellipse([px - r, py - r, px + r, py + r], fill=RED,
                   outline=(255, 255, 255), width=1)
         d.text((px, py), str(num), font=F(SANS_B, 11), fill=(255, 255, 255),
                anchor="mm")
