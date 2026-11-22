@@ -263,16 +263,16 @@ def tile_art(d, key, x, y, w, h):
 
 # ------------------------------------------------- story data (35, Saturday 21 Nov 2026)
 HEROES = [
-    dict(num=1, kicker="COP31: OVERTIME", stat="No deal \u00b7 day 13",
-         loc="1 ANTALYA, T\u00dcRKIYE \u00b7 CLIMATE",
-         head="Climate summit drags into Saturday",
-         body="A draft with no fossil fuels split nearly 200 countries. (AFP, Al Jazeera)",
-         badge="CONFIRMED", badge_color=TEAL, art=art_cop31),
-    dict(num=2, kicker="SAUDI: MISSILES", stat="3 shot down",
-         loc="2 RIYADH, SAUDI ARABIA \u00b7 WAR",
+    dict(num=1, kicker="SAUDI: MISSILES", stat="3 shot down",
+         loc="1 RIYADH, SAUDI ARABIA \u00b7 WAR",
          head="Three Houthi missiles shot down over Riyadh",
          body="Three destroyed over Riyadh before dawn and two over Jizan. (AFP, Dawn)",
          badge="OFFICIAL", badge_color=GREEN, art=art_riyadh),
+    dict(num=2, kicker="COP31: OVERTIME", stat="No deal \u00b7 day 13",
+         loc="2 ANTALYA, T\u00dcRKIYE \u00b7 CLIMATE",
+         head="Climate summit drags into Saturday",
+         body="A draft with no fossil fuels split nearly 200 countries. (AFP, Al Jazeera)",
+         badge="CONFIRMED", badge_color=TEAL, art=art_cop31),
     dict(num=3, kicker="PERU: QUAKE 6.7", stat="00:09 UTC \u00b7 108 km deep",
          loc="3 JUN\u00cdN, PERU \u00b7 EARTHQUAKE",
          head="Magnitude 6.7 quake shakes Peru",
@@ -354,8 +354,8 @@ SOURCES = ("AFP \u00b7 REUTERS \u00b7 AP \u00b7 AL JAZEERA \u00b7 KYIV INDEPENDE
            "ETV \u00b7 AUTOSPORT")
 
 NUMBERS = [
-    ("13", "DAY OF COP31", "MEANT TO CLOSE DAY 12"),
     ("3", "MISSILES SHOT DOWN", "OVER RIYADH"),
+    ("13", "DAY OF COP31", "MEANT TO CLOSE DAY 12"),
     ("6.7", "MAGNITUDE OF THE", "PERU QUAKE"),
     ("146", "PEOPLE SAFE AFTER", "A JET EMERGENCY LANDING"),
     ("$58,983", "BITCOIN EARLY SATURDAY", "DOWN 3.9% IN A DAY"),
@@ -376,7 +376,7 @@ REGIONS = [
 # map pins 1-13 (pixel positions on the 340x123 map; 1-2 and 3-11 nudged
 # apart so the enlarged r=9 pins do not overlap)
 PINS = [
-    (1, 228, 785), (2, 246, 795), (3, 125, 828), (4, 220, 764),
+    (1, 246, 795), (2, 228, 785), (3, 125, 828), (4, 220, 764),
     (5, 268, 789), (6, 252, 769), (7, 120, 793), (8, 308, 778),
     (9, 317, 809), (10, 336, 845), (11, 134, 809), (12, 89, 782),
     (13, 358, 857),
@@ -411,7 +411,7 @@ def render():
             break
         msize -= 2
     d.text((512, 34), mast, font=mf, fill=INK, anchor="mt")
-    d.text((512, 120), "COP31 talks run into overtime \u00b7 missiles over Riyadh \u00b7 a quake shakes Peru",
+    d.text((512, 120), "Missiles over Riyadh \u00b7 COP31 talks run into overtime \u00b7 a quake shakes Peru",
            font=F(SERIF_I, 18), fill=INK, anchor="mt")
 
     # numbers strip: 6 verified Saturday figures
